@@ -28,13 +28,18 @@ function findSteps(scheme_id){
 };
 
 function add(newScheme){
-
+    return db('schemes')
+        .insert(newScheme);
 };
 
-function update(updatedScheme, id){
-
+function update(updateScheme, id){
+    return db('schemes')
+        .update(updateScheme)
+        .where('id', id)
 };
 
 function remove(id){
-
+    return db('schemes')
+        .where('id', id)
+        .del();
 };
