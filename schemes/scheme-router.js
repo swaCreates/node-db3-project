@@ -1,5 +1,4 @@
 const express = require('express');
-
 const Schemes = require('./scheme-model.js');
 
 const router = express.Router();
@@ -87,7 +86,7 @@ router.put('/:id', (req, res) => {
     if (scheme) {
       Schemes.update(changes, id)
       .then(updatedScheme => {
-        res.json(updatedScheme);
+        res.json({ schemesUpdated: updatedScheme});
       });
     } else {
       res.status(404).json({ message: 'Could not find scheme with given id' });
